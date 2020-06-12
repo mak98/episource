@@ -1,0 +1,52 @@
+<html>
+    <link href="{{url_for('static',filename='style.css')}}" rel="stylesheet">
+    <body>
+        {% for x in range(l) %}
+        <div>
+            <h3>Hotel Details</h3>
+            <table>
+            {% for key,value in arr[x].items()%}
+            <tr>
+            {% if key!='images' %}
+            <th>{{key}}</th>
+            <td>{{value}}</td>
+            {% else%}
+            <th>{{key}}</th>
+            <td>
+            {% for i in value %}
+            <img src="{{i}}" alt="{{value}}">
+            {% endfor %}
+        </td>
+            {% endif %}
+        
+        </tr>
+            {% endfor %}
+        </table>
+        <button onclick=showrev({{x}})>Show review</button>
+        <div style="inv" id={{x}}>
+            <h3>review</h3>
+        {% for y in rev[x] %}
+            <table>
+            {% for key,value in y.items()%}
+            <tr>
+                <th>{{key}}</th>
+                <td>{{value}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {%endfor%}
+    </div>
+    </div>
+    {% endfor %}
+    <script>
+        function showrev(n) {
+          var x = document.getElementById(n);
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        }
+    </script>
+    </body>
+</html>
