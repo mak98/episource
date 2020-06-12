@@ -23,7 +23,7 @@
             {% endfor %}
         </table>
         <button onclick=showrev({{x}})>Show review</button>
-        <div style="inv" id={{x}}>
+        <div id={{x}} style="display: none;">
             <h3>review</h3>
         {% for y in rev[x] %}
             <table>
